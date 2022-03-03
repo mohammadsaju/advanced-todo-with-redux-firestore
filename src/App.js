@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import react, { useEffect, useState } from 'react';
+import todo_logo from './img/todo-logo.webp';
+import Modal from './components/Modal';
+import Controller from './components/Controller';
+import Main from './components/Main';
 
 function App() {
+  const [isModal, setModal] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <img className='w-64 sm:w-80 mx-auto' src={todo_logo} alt="todo_logo"/>
+      {/* controller section */}
+      <Controller setModal={setModal}/>
+      {/* main section */}
+      <Main/>
+      {/* modal section */}
+      {isModal && <Modal setModal={setModal}/>}
     </div>
   );
 }
